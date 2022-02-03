@@ -1,10 +1,46 @@
 "use strict";
 
-const testContainer = document.getElementById('test');
-const resultsContainer = document.getElementById('results');
-const submitButton = document.getElementById('submit');
+(function(){
+    function createTest(){
+        //variable to store the html output
+        const output = [];
 
-function createTest(){}
+        //for each question...
+        myQuestions.forEach(
+            (currentQuestion, questionNumber) =>
+        {
+
+            //variable to store list of possible answers
+            const answers = [];
+
+            //for each available answer...
+            for (letter in currentQuestion.answers) {
+
+                // ...add an html radio button
+                answers.push(
+                    `<label>
+<input type="radio"
+name="question${questionNumber}"
+value="${letter}">
+ ${letter} :
+
+${currentQuestion.answers[letter]}
+</label>`
+                );
+            }
+
+            //add this question and its answers to output
+            output.push(
+                `<div class="question">
+${currentQuestion.question} </div>
+<div class="answers">
+${answers.join('')}
+</div>`
+            );
+        }
+    );
+
+
 
 function showResults(){}
 
@@ -48,3 +84,57 @@ const myQuestions = [
 
 ]
 
+function createQuiz() {
+    //variable to store html output
+    const output = [];
+
+    //for each question
+    myQuestions.forEach(
+        (currentQuestion, questionNumber) => {
+
+            //variable to store list of possible answers
+            const answers = [];
+
+            //for each available answer
+            for (letter in currentQuestion.answers) {
+
+                //add a html radio button
+                answers.push(
+                    `<label>
+                      <input type="radio" name="question${questionNumber}" value="${letter}">
+                      ${letter} :
+                      ${currentQuestion.answers[letter]}
+                     </label>`
+                );
+            }
+
+            //add question and its answers to the output
+            output.push(
+                `<div class="question"> ${currentQuestion.question} </div>
+                 <div class="answers"> ${answers.join('')}</div>`
+            );
+        }
+    )
+
+    //combine output list into one string of html and put it on the page
+    testContainer.innerHTML = output.join('');
+
+
+    myQuestions.forEach((currentQuestion, questionNumber) => {
+        //store list of answer choices
+        const answers = [];
+
+        //for each available answer
+        for(letter in currentQuestion.answers){
+
+            //add an html radio button
+            answers.push(
+                `<label>
+                 <input type="radio" name="question${questionNumber}" value="${letter}">
+                 `
+            )
+        }
+
+    });
+
+}
