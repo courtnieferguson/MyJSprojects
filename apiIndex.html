@@ -3,20 +3,29 @@
 <head>
     <meta charset="UTF-8">
     <title>API Practice</title>
-    <script defer src="JS/apiIndex.js" charset="utf-8"></script>
-<!-- "defer" informs thee browser tp wait until the page loads to run the js-->
-</head>
-<body>
+<!--    <script defer src="JS/apiIndex.js" charset="utf-8"></script>-->
+<!--&lt;!&ndash; "defer" informs thee browser tp wait until the page loads to run the js&ndash;&gt;-->
+<!--</head>-->
+<!--<body>-->
 
-<div id="quotes">
-<!-- quote-->
-</div><br>
+<!--<div id="quotes">-->
+<!--&lt;!&ndash; quote&ndash;&gt;-->
+<!--</div><br>-->
 
-<button id="give-cat">GIMME A CAT</button>
-<div id="cat-pic">
-<!-- cat pic here-->
-</div>
+<!--<button id="give-cat">GIMME A CAT</button>-->
+<!--<div id="cat-pic">-->
+<!--&lt;!&ndash; cat pic here&ndash;&gt;-->
+<!--</div>-->
 
+<div id="like_button_container"></div>
+
+<!-- Load React. -->
+<!-- Note: when deploying, replace "development.js" with "production.min.js". -->
+<script src="https://unpkg.com/react@17/umd/react.production.min.js" crossorigin></script>
+<script src="https://unpkg.com/react-dom@17/umd/react-dom.production.min.js" crossorigin></script>
+
+<!-- Load our React component. -->
+<script src="/JS/like_button.js"></script>
 
 </body>
 </html>
