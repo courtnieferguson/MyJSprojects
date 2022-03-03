@@ -1,5 +1,5 @@
-(function(){
-    function buildQuiz(){
+(function () {
+    function buildQuiz() {
         // variable to store the HTML output
         const output = [];
 
@@ -11,7 +11,7 @@
                 const answers = [];
 
                 // and for each available answer...
-                for(letter in currentQuestion.answers){
+                for (letter in currentQuestion.answers) {
 
                     // ...add an HTML radio button
                     answers.push(
@@ -35,7 +35,7 @@
         quizContainer.innerHTML = output.join('');
     }
 
-    function showResults(){
+    function showResults() {
 
         // gather answer containers from our quiz
         const answerContainers = quizContainer.querySelectorAll('.answers');
@@ -44,7 +44,7 @@
         let numCorrect = 0;
 
         // for each question...
-        myQuestions.forEach( (currentQuestion, questionNumber) => {
+        myQuestions.forEach((currentQuestion, questionNumber) => {
 
             // find selected answer
             const answerContainer = answerContainers[questionNumber];
@@ -52,7 +52,7 @@
             const userAnswer = (answerContainer.querySelector(selector) || {}).value;
 
             // if answer is correct
-            if(userAnswer === currentQuestion.correctAnswer){
+            if (userAnswer === currentQuestion.correctAnswer) {
                 // add to the number of correct answers
                 numCorrect++;
 
@@ -60,7 +60,7 @@
                 answerContainers[questionNumber].style.color = 'lightgreen';
             }
             // if answer wrong or unanswered
-            else{
+            else {
                 // color the answers red
                 answerContainers[questionNumber].style.color = 'red';
             }
@@ -103,6 +103,26 @@
                 d: "None of the above"
             },
             correctAnswer: "c"
+        },
+        {
+            question: "How is a for statement different from a for each statement?",
+            answers: {
+                a: "only a for statement uses a callback function.",
+                b: "A for statement is generic, but a forEach statement can be used only with an array.",
+                c: "Only a forEach statement lets you specify your own iterator.",
+                d: "A forEach statement is generic, but a for statement can be used only with an array."
+            },
+            correctAnswer: "b"
+        },
+        {
+            question: "How does a function create closure?",
+            answers: {
+                a: "It reloads the document whenever the value changes.",
+                b: "It returns a reference to a variable in its parent scope.",
+                c: "It completes execution without returning.",
+                d: "It copies a local variable to the global scope"
+            },
+            correctAnswer: "b"
         }
     ];
 
